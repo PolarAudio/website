@@ -138,163 +138,116 @@
       margin-bottom: 2rem;
       font-size: 0.9rem;
     }
-    
-    /* New Form Styles */
-    .btn-container {
-      text-align: center;
-      margin: 2rem 0;
-    }
-    
+    /* New form styles */
     .btn-getintouch {
+      display: block;
+      margin: 2rem auto;
       background-color: var(--orange);
       color: white;
-      padding: 12px 24px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
       border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: bold;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.1s ease;
+      transition: background-color 0.3s ease;
     }
-    
     .btn-getintouch:hover {
-      background-color: #e25500;
+      background-color: #e05500;
     }
-    
-    .btn-getintouch:active {
-      transform: scale(0.98);
-    }
-    
     .form-overlay {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.92);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 10000;
-      animation: fadeIn 0.3s ease-out;
+      z-index: 1000;
     }
-    
     .form-box {
-      background-color: #111;
-      padding: 30px;
-      border-radius: 14px;
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
       width: 90%;
-      max-width: 420px;
-      color: white;
-      animation: slideUp 0.4s ease-out;
-      box-sizing: border-box;
+      color: var(--black);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
-    
     .form-box h2 {
-      text-align: center;
       color: var(--orange);
-      margin-bottom: 5px;
+      margin-bottom: 0.5rem;
+      text-align: center;
     }
-    
     .form-box p {
       text-align: center;
-      color: #ccc;
-      font-size: 0.95em;
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      color: var(--black);
     }
-    
-    .form-box input[type="text"],
-    .form-box input[type="email"],
-    .form-box input[type="tel"],
-    .form-box select {
-      width: 100%;
-      padding: 10px 14px;
-      margin-bottom: 14px;
-      background-color: #222;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      box-sizing: border-box;
+    .form-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    
-    .form-box select {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M208.5%2089.5l-80%2080c-4.7%204.7-12.3%204.7-17%200l-80-80c-4.7-4.7-4.7-12.3%200-17s12.3-4.7%2017%200L128%20143.2l71.5-71.5c4.7-4.7%2012.3-4.7%2017%200s4.7%2012.3%200%2017z%22%2F%3E%3C%2Fsvg%3E'); 
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-      background-size: 16px;
-      padding-right: 30px;
+    .form-box input,
+    .form-box select,
+    .form-box textarea {
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 0.95rem;
     }
-    
-    .form-box button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.1s ease;
+    .form-box input:focus,
+    .form-box select:focus,
+    .form-box textarea:focus {
+      outline: none;
+      border-color: var(--orange);
     }
-    
+    .card-number-input {
+      display: flex;
+      align-items: center;
+    }
+    .card-number-prefix {
+      background-color: #f0f0f0;
+      padding: 0.8rem;
+      border-radius: 6px 0 0 6px;
+      border: 1px solid #ddd;
+      border-right: none;
+    }
+    .card-number-input input {
+      border-radius: 0 6px 6px 0;
+      flex-grow: 1;
+    }
+    .note {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: -0.5rem;
+    }
     .send-btn {
       background-color: var(--orange);
       color: white;
-    }
-    
-    .send-btn:hover {
-      background-color: #e25500;
-    }
-    
-    .send-btn:active {
-      transform: scale(0.98);
-    }
-    
-    .cancel-btn {
-      background-color: #444;
-      color: white;
-    }
-    
-    .cancel-btn:hover {
-      background-color: #555;
-    }
-    
-    .cancel-btn:active {
-      transform: scale(0.98);
-    }
-    
-    .note {
-      font-size: 0.8em;
-      color: #aaa;
-      margin-top: -8px;
-      margin-bottom: 12px;
-    }
-    
-    .card-number-input {
-      position: relative;
-    }
-    
-    .card-number-input::before {
-      content: "BK";
-      position: absolute;
-      left: 14px;
-      top: 10px;
-      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
       font-weight: bold;
+      transition: background-color 0.3s ease;
     }
-    
-    .card-number-input input {
-      padding-left: 40px !important;
+    .send-btn:hover {
+      background-color: #e05500;
     }
-    
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    .cancel-btn {
+      background-color: #f0f0f0;
+      color: var(--black);
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    
-    @keyframes slideUp {
-      from {transform: translateY(30px); opacity: 0;}
-      to {transform: translateY(0); opacity: 1;}
+    .cancel-btn:hover {
+      background-color: #ddd;
     }
   </style>
 </head>
@@ -347,13 +300,9 @@
     </div>
   </div>
 
-  <!-- Get in Touch Button -->
-  <div class="btn-container">
-    <button onclick="showForm()" class="btn-getintouch">Get in Touch</button>
-  </div>
-  
-  <!-- Form Wrapper -->
-  <div id="formWrapper" style="display: none;"></div>
+  <!-- New Get In Touch Button and Form -->
+  <button onclick="showForm()" class="btn-getintouch">Get In Touch</button>
+  <div id="formWrapper" style="display: none"></div>
 
   <footer>
     <p>Based in Bali, Indonesia<br>
@@ -382,133 +331,178 @@
       document.body.classList.toggle('light');
       document.body.classList.toggle('dark');
     }
-    
-    // Form Scripts
-    const GS_API_URL = 'https://script.google.com/macros/s/AKfycbylSiVc177aOGCktaO7gMSl7UE2tMaH_JssGlE52zRj0mb6uAr2uXVBeaU5bzBLLG0CuQ/exec';
+  </script>
+
+  <script>
+    const GS_API_URL = "https://script.google.com/macros/s/AKfycbyTKBYI2ZZZ85yMalV1LRgcSg4h3re7mL3GER8PEBBlcTh3x4sHrj8hSMR-l0lcJZ2Zwg/exec";
     const FORMSPREE_URL = "https://formspree.io/f/mnnvbjzb";
-    const ADMIN_WHATSAPP_NUMBER = "6281237858515"; 
-  
+    const ADMIN_WHATSAPP_NUMBER = "6281237858515";
+
     function showForm() {
-      if (document.getElementById("form-register")) return; 
-    
+      if (document.getElementById("form-register")) return;
+
       const formHtml = `
-        <div class="form-overlay" id="form-register">
-          <div class="form-box">
-            <h2>Register Memberclub</h2>
-            <p>Uncover More, With No Cost to You</p>
-            <form onsubmit="return submitForm(event)">
-              <input name="fullname" id="fullname" type="text" placeholder="Full Name" required />
-              <input name="phone" id="phone" type="tel" placeholder="WhatsApp Number" required />
-              <input name="email" id="email" type="email" placeholder="Email" required />
-              
-              <select name="profession" id="profession" required>
-                <option value=""> Select Profession </option>
-                <option value="DJ">DJ</option>
-                <option value="EO">EO</option>
-                <option value="GM">GM</option>
-                <option value="VENDOR">VENDOR</option>
-                <option value="FREELANCER">FREELANCER</option>
-                <option value="OTHER">OTHER</option>
-              </select>
-              
-              <input name="business" id="business" type="text" placeholder="Business Field" required />
-              
-              <select name="visa" id="visa"> 
-                <option value=""> Select Type of Visa (Optional) </option>
-                <option value="Tourist Visa (B211A)">Tourist Visa (B211A - Tourism, Social, Business)</option>
-                <option value="Limited Stay Visa (VITAS)">Limited Stay Visa (VITAS - Work, Investor, Retirement)</option>
-                <option value="Visa On Arrival (VOA)">Visa On Arrival (VOA)</option>
-                <option value="Diplomatic/Service Visa">Diplomatic / Service Visa</option>
-                <option value="Transit Visa">Transit Visa</option>
-                <option value="Visa-Free">Visa-Free</option>
-                <option value="Other">Other</option>
-              </select>
-              
-              <div class="card-number-input">
-                <input name="cardnumber" id="cardnumber" type="text" placeholder="Card Number" required />
-              </div>
-              <div class="note">Enter your card number including the BK prefix</div>
-              
-              <button class="send-btn" type="submit">SUBMIT</button>
-              <button class="cancel-btn" type="button" onclick="closeForm()">Cancel</button>
-            </form>
-          </div>
-        </div>`;
-      
+      <div class="form-overlay" id="form-register">
+        <div class="form-box">
+          <h2>Get In Touch</h2>
+          <p>Uncover More, With No Cost to You</p>
+          <form onsubmit="return submitForm(event)">
+            <input name="fullname" id="fullname" type="text" placeholder="Full Name" required />
+            <input name="phone" id="phone" type="tel" placeholder="WhatsApp Number" required />
+            <input name="email" id="email" type="email" placeholder="Email" required />
+            
+            <select name="profession" id="profession" required>
+              <option value=""> Select Profession </option>
+              <option value="DJ">DJ</option>
+              <option value="EO">EO</option>
+              <option value="GM">GM</option>
+              <option value="VENDOR">VENDOR</option>
+              <option value="FREELANCER">FREELANCER</option>
+              <option value="OTHER">OTHER</option>
+            </select>
+            
+            <input name="business" id="business" type="text" placeholder="Business Field" required />
+            
+            <select name="visa" id="visa"> 
+              <option value=""> Select Type of Visa (Optional) </option>
+              <option value="Tourist Visa (B211A)">Tourist Visa (B211A - Tourism, Social, Business)</option>
+              <option value="Limited Stay Visa (VITAS)">Limited Stay Visa (VITAS - Work, Investor, Retirement)</option>
+              <option value="Visa On Arrival (VOA)">Visa On Arrival (VOA)</option>
+              <option value="Diplomatic/Service Visa">Diplomatic / Service Visa</option>
+              <option value="Transit Visa">Transit Visa</option>
+              <option value="Visa-Free">Visa-Free</option>
+              <option value="Other">Other</option>
+            </select>
+            
+            <div class="card-number-input">
+              <span class="card-number-prefix">BK</span>
+              <input name="cardnumber" id="cardnumber" type="text" placeholder="Card Number" 
+                pattern="[0-9]{8}" maxlength="8" required 
+                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8)" />
+            </div>
+            <div class="note">8-digit number only (e.g., BK12345678)</div>
+            
+            <button class="send-btn" type="submit">SUBMIT</button>
+            <button class="cancel-btn" type="button" onclick="closeForm()">Cancel</button>
+          </form>
+        </div>
+      </div>`;
+
       document.getElementById("formWrapper").innerHTML = formHtml;
-      document.getElementById("formWrapper").style.display = 'block';
+      document.getElementById("formWrapper").style.display = "block";
     }
-  
+
     function closeForm() {
       const form = document.getElementById("form-register");
       if (form) {
         form.remove();
-        document.getElementById("formWrapper").style.display = 'none';
+        document.getElementById("formWrapper").style.display = "none";
       }
     }
-  
+
     async function submitForm(e) {
-      e.preventDefault(); 
-      const formData = new FormData(e.target);
-      const data = Object.fromEntries(formData); 
-      
-      // Ensure card number has BK prefix
-      if (!data.cardnumber.startsWith('BK')) {
-        data.cardnumber = 'BK' + data.cardnumber;
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      // Validate card number
+      const cardNumber = data.cardnumber;
+      if (
+        !cardNumber ||
+        cardNumber.length !== 8 ||
+        !/^\d+$/.test(cardNumber)
+      ) {
+        alert("Please enter a valid 8-digit card number (numbers only).");
+        return false;
       }
-      
+
+      // Format card number with BK prefix for display
+      const formattedCardNumber = `BK${cardNumber}`;
+
       let sheetsSuccess = false;
       let formspreeSuccess = false;
       let alertMessages = [];
-  
+
+      // Submit to Google Sheets
       try {
         const sheetsResponse = await fetch(GS_API_URL, {
-          method: 'POST',
-          body: JSON.stringify(data) 
+          method: "POST",
+          body: JSON.stringify({
+            ...data,
+            formattedCardNumber: formattedCardNumber,
+          }),
         });
         const sheetsResult = await sheetsResponse.json();
         if (sheetsResult.status === "success") {
           sheetsSuccess = true;
-          alertMessages.push("Registration data saved successfully.");
+          alertMessages.push(
+            "Registration data saved successfully to our database."
+          );
         } else {
-          alertMessages.push("Google Sheets submission failed: " + (sheetsResult.message || "Unknown error."));
+          alertMessages.push(
+            "Google Sheets submission failed: " +
+              (sheetsResult.message || "Unknown error.")
+          );
         }
       } catch (error) {
-        alertMessages.push("Google Sheets connection error: " + error.message);
+        alertMessages.push(
+          "Google Sheets connection error: " + error.message
+        );
       }
-  
+
+      // Submit to Formspree
       try {
+        // Create new FormData to include all original fields plus the formatted card number
         const formspreeFormData = new FormData();
-        for (const key in data) {
-            formspreeFormData.append(key, data[key]);
-        }
-        formspreeFormData.append("_subject", "New Member Registered - Polar Audio Bali");
-        
+        formspreeFormData.append("fullname", data.fullname);
+        formspreeFormData.append("phone", data.phone);
+        formspreeFormData.append("email", data.email);
+        formspreeFormData.append("profession", data.profession);
+        formspreeFormData.append("business", data.business);
+        formspreeFormData.append("visa", data.visa);
+        formspreeFormData.append("cardnumber", cardNumber); // Original 8-digit number
+        formspreeFormData.append("formattedCardNumber", formattedCardNumber); // With BK prefix
+        formspreeFormData.append(
+          "_subject",
+          "New Member Registered - Polar Audio Bali"
+        );
+
         const formspreeResponse = await fetch(FORMSPREE_URL, {
-          method: 'POST',
-          body: formspreeFormData, 
+          method: "POST",
+          body: formspreeFormData,
           headers: {
-            'Accept': 'application/json' 
-          }
+            Accept: "application/json",
+          },
         });
-  
-        if (formspreeResponse.ok) { 
+
+        if (formspreeResponse.ok) {
           formspreeSuccess = true;
           alertMessages.push("Email notification sent successfully.");
         } else {
           const errorData = await formspreeResponse.json();
-          alertMessages.push("Email notification failed: " + (errorData.errors ? errorData.errors.map(err => err.message).join(', ') : "Unknown error."));
+          alertMessages.push(
+            "Email notification failed: " +
+              (errorData.errors
+                ? errorData.errors.map((err) => err.message).join(", ")
+                : "Unknown error.")
+          );
         }
       } catch (error) {
         alertMessages.push("Formspree connection error: " + error.message);
       }
-  
-      const currentTimestamp = new Date().toLocaleString('id-ID', {
-          year: 'numeric', month: 'long', day: 'numeric',
-          hour: '2-digit', minute: '2-digit', second: '2-digit',
-          hour12: false
+
+      // Prepare WhatsApp message
+      const currentTimestamp = new Date().toLocaleString("id-ID", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
       });
-  
+
       const whatsappMessage = `**POLAR AUDIO BALI - NEW MEMBER REGISTERED**
 -------------------------------------------------
 
@@ -519,30 +513,33 @@ Email: ${data.email || "N/A"}
 Profession: ${data.profession || "N/A"}
 Business Field: ${data.business || "N/A"}
 Type of Visa: ${data.visa || "N/A"}
-Card Number: ${data.cardnumber || "N/A"}
+Card Number: ${formattedCardNumber || "N/A"}
 
 Registration Time: ${currentTimestamp}
 
-Action Required:
-Please verify the registration details. Thank you!`;
-  
+Thank you for registering with Polar Audio Bali!`;
+
       const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
       const whatsappUrl = `https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${encodedWhatsappMessage}`;
-  
+
       try {
-          window.open(whatsappUrl, '_blank');
-          alertMessages.push("WhatsApp notification will open in a new tab. Please send the message manually.");
+        window.open(whatsappUrl, "_blank");
+        alertMessages.push(
+          "WhatsApp notification will open in a new tab. Please send the message manually."
+        );
       } catch (error) {
-          alertMessages.push("Failed to open WhatsApp: " + error.message);
+        alertMessages.push("Failed to open WhatsApp: " + error.message);
       }
-  
+
+      // Show all status messages
       alert(alertMessages.join("\n\n"));
-  
+
+      // Reset form if both submissions were successful
       if (sheetsSuccess && formspreeSuccess) {
-          closeForm();
-          e.target.reset();
+        closeForm();
+        form.reset();
       }
-  
+
       return false;
     }
   </script>
