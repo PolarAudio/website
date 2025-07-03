@@ -140,6 +140,11 @@
     }
     
     /* New Form Styles */
+    .btn-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    
     .btn-getintouch {
       background-color: var(--orange);
       color: white;
@@ -150,18 +155,16 @@
       font-weight: bold;
       cursor: pointer;
       transition: background 0.3s ease, transform 0.1s ease;
-      margin: 2rem auto;
-      display: block;
     }
-  
+    
     .btn-getintouch:hover {
       background-color: #e25500;
     }
-  
+    
     .btn-getintouch:active {
       transform: scale(0.98);
     }
-  
+    
     .form-overlay {
       position: fixed;
       top: 0; left: 0;
@@ -173,7 +176,7 @@
       z-index: 10000;
       animation: fadeIn 0.3s ease-out;
     }
-  
+    
     .form-box {
       background-color: #111;
       padding: 30px;
@@ -184,22 +187,24 @@
       animation: slideUp 0.4s ease-out;
       box-sizing: border-box;
     }
-  
+    
     .form-box h2 {
       text-align: center;
       color: var(--orange);
       margin-bottom: 5px;
     }
-  
+    
     .form-box p {
       text-align: center;
       color: #ccc;
       font-size: 0.95em;
       margin-bottom: 20px;
     }
-  
-    /* Custom styling ONLY for Profession and Visa dropdowns */
-    #profession, #visa { 
+    
+    .form-box input[type="text"],
+    .form-box input[type="email"],
+    .form-box input[type="tel"],
+    .form-box select {
       width: 100%;
       padding: 10px 14px;
       margin-bottom: 14px;
@@ -208,6 +213,9 @@
       border-radius: 8px;
       color: white;
       box-sizing: border-box;
+    }
+    
+    .form-box select {
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -217,26 +225,7 @@
       background-size: 16px;
       padding-right: 30px;
     }
-  
-    #profession option, #visa option {
-      background-color: #222; 
-      color: white;
-    }
-  
-    /* Default styling for text inputs */
-    .form-box input[type="text"],
-    .form-box input[type="email"],
-    .form-box input[type="tel"] {
-      width: 100%;
-      padding: 10px 14px;
-      margin-bottom: 14px;
-      background-color: #222;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      box-sizing: border-box;
-    }
-  
+    
     .form-box button {
       width: 100%;
       padding: 12px;
@@ -247,45 +236,62 @@
       cursor: pointer;
       transition: background 0.3s ease, transform 0.1s ease;
     }
-  
+    
     .send-btn {
       background-color: var(--orange);
       color: white;
     }
-  
+    
     .send-btn:hover {
       background-color: #e25500;
     }
-  
+    
     .send-btn:active {
       transform: scale(0.98);
     }
-  
+    
     .cancel-btn {
       background-color: #444;
       color: white;
     }
-  
+    
     .cancel-btn:hover {
       background-color: #555;
     }
-  
+    
     .cancel-btn:active {
       transform: scale(0.98);
     }
-  
+    
     .note {
       font-size: 0.8em;
       color: #aaa;
       margin-top: -8px;
       margin-bottom: 12px;
     }
-  
+    
+    .card-number-input {
+      position: relative;
+    }
+    
+    .card-number-input::before {
+      content: "BK";
+      position: absolute;
+      left: 14px;
+      top: 10px;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .card-number-input input {
+      padding-left: 40px !important;
+    }
+    
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
     }
-  
+    
     @keyframes slideUp {
       from {transform: translateY(30px); opacity: 0;}
       to {transform: translateY(0); opacity: 1;}
@@ -341,8 +347,12 @@
     </div>
   </div>
 
-  <!-- New Form Section -->
-  <button onclick="showForm()" class="btn-getintouch">Get in Touch</button>
+  <!-- Get in Touch Button -->
+  <div class="btn-container">
+    <button onclick="showForm()" class="btn-getintouch">Get in Touch</button>
+  </div>
+  
+  <!-- Form Wrapper -->
   <div id="formWrapper" style="display: none;"></div>
 
   <footer>
@@ -373,7 +383,7 @@
       document.body.classList.toggle('dark');
     }
     
-    // New Form Scripts
+    // Form Scripts
     const GS_API_URL = 'https://script.google.com/macros/s/AKfycbylSiVc177aOGCktaO7gMSl7UE2tMaH_JssGlE52zRj0mb6uAr2uXVBeaU5bzBLLG0CuQ/exec';
     const FORMSPREE_URL = "https://formspree.io/f/mnnvbjzb";
     const ADMIN_WHATSAPP_NUMBER = "6281237858515"; 
@@ -414,8 +424,11 @@
                 <option value="Other">Other</option>
               </select>
               
-              <input type="text" placeholder="Card Number (Provided by POLAR)" readonly />
-              <div class="note">Card number will be given by POLAR</div>
+              <div class="card-number-input">
+                <input name="cardnumber" id="cardnumber" type="text" placeholder="Card Number" required />
+              </div>
+              <div class="note">Enter your card number including the BK prefix</div>
+              
               <button class="send-btn" type="submit">SUBMIT</button>
               <button class="cancel-btn" type="button" onclick="closeForm()">Cancel</button>
             </form>
@@ -438,6 +451,11 @@
       e.preventDefault(); 
       const formData = new FormData(e.target);
       const data = Object.fromEntries(formData); 
+      
+      // Ensure card number has BK prefix
+      if (!data.cardnumber.startsWith('BK')) {
+        data.cardnumber = 'BK' + data.cardnumber;
+      }
       
       let sheetsSuccess = false;
       let formspreeSuccess = false;
@@ -492,21 +510,21 @@
       });
   
       const whatsappMessage = `**POLAR AUDIO BALI - NEW MEMBER REGISTERED**
-  -------------------------------------------------
-  
-  Registration Details:
-  Full Name: ${data.fullname || "N/A"}
-  WhatsApp Number: ${data.phone || "N/A"}
-  Email: ${data.email || "N/A"}
-  Profession: ${data.profession || "N/A"}
-  Business Field: ${data.business || "N/A"}
-  Type of Visa: ${data.visa || "N/A"}
-  Card Number: (Not yet assigned)
-  
-  Registration Time: ${currentTimestamp}
-  
-  Action Required:
-  Please process the Card Number issuance soon. Thank you!`;
+-------------------------------------------------
+
+Registration Details:
+Full Name: ${data.fullname || "N/A"}
+WhatsApp Number: ${data.phone || "N/A"}
+Email: ${data.email || "N/A"}
+Profession: ${data.profession || "N/A"}
+Business Field: ${data.business || "N/A"}
+Type of Visa: ${data.visa || "N/A"}
+Card Number: ${data.cardnumber || "N/A"}
+
+Registration Time: ${currentTimestamp}
+
+Action Required:
+Please verify the registration details. Thank you!`;
   
       const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
       const whatsappUrl = `https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${encodedWhatsappMessage}`;
