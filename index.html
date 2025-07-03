@@ -138,6 +138,158 @@
       margin-bottom: 2rem;
       font-size: 0.9rem;
     }
+    
+    /* New Form Styles */
+    .btn-getintouch {
+      background-color: var(--orange);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.1s ease;
+      margin: 2rem auto;
+      display: block;
+    }
+  
+    .btn-getintouch:hover {
+      background-color: #e25500;
+    }
+  
+    .btn-getintouch:active {
+      transform: scale(0.98);
+    }
+  
+    .form-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.92);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      animation: fadeIn 0.3s ease-out;
+    }
+  
+    .form-box {
+      background-color: #111;
+      padding: 30px;
+      border-radius: 14px;
+      width: 90%;
+      max-width: 420px;
+      color: white;
+      animation: slideUp 0.4s ease-out;
+      box-sizing: border-box;
+    }
+  
+    .form-box h2 {
+      text-align: center;
+      color: var(--orange);
+      margin-bottom: 5px;
+    }
+  
+    .form-box p {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.95em;
+      margin-bottom: 20px;
+    }
+  
+    /* Custom styling ONLY for Profession and Visa dropdowns */
+    #profession, #visa { 
+      width: 100%;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      background-color: #222;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      box-sizing: border-box;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M208.5%2089.5l-80%2080c-4.7%204.7-12.3%204.7-17%200l-80-80c-4.7-4.7-4.7-12.3%200-17s12.3-4.7%2017%200L128%20143.2l71.5-71.5c4.7-4.7%2012.3-4.7%2017%200s4.7%2012.3%200%2017z%22%2F%3E%3C%2Fsvg%3E'); 
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 16px;
+      padding-right: 30px;
+    }
+  
+    #profession option, #visa option {
+      background-color: #222; 
+      color: white;
+    }
+  
+    /* Default styling for text inputs */
+    .form-box input[type="text"],
+    .form-box input[type="email"],
+    .form-box input[type="tel"] {
+      width: 100%;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      background-color: #222;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      box-sizing: border-box;
+    }
+  
+    .form-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.1s ease;
+    }
+  
+    .send-btn {
+      background-color: var(--orange);
+      color: white;
+    }
+  
+    .send-btn:hover {
+      background-color: #e25500;
+    }
+  
+    .send-btn:active {
+      transform: scale(0.98);
+    }
+  
+    .cancel-btn {
+      background-color: #444;
+      color: white;
+    }
+  
+    .cancel-btn:hover {
+      background-color: #555;
+    }
+  
+    .cancel-btn:active {
+      transform: scale(0.98);
+    }
+  
+    .note {
+      font-size: 0.8em;
+      color: #aaa;
+      margin-top: -8px;
+      margin-bottom: 12px;
+    }
+  
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  
+    @keyframes slideUp {
+      from {transform: translateY(30px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
   </style>
 </head>
 <body class="dark">
@@ -164,7 +316,7 @@
       Our BLACK CARD is your gateway to high performance solutions and long-term collaboration.</p>
       <p><strong>BLACK CARD – LIMITED EDITION / B2B ONLY</strong><br>
       Exclusive for companies, corporate clients, professional partners, and GM.</p>
-      <p><strong>Partner with us. Grow with us. Let’s Work Together.</strong><br>
+      <p><strong>Partner with us. Grow with us. Let's Work Together.</strong><br>
       For collaboration inquiries, contact us directly.</p>
       <div class="contact">
         <a href="https://instagram.com/polar_solution" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" width="24" /></a>
@@ -189,38 +341,11 @@
     </div>
   </div>
 
-  <!-- Contact Form Start -->
-  <div class="main-text" style="margin-top: 4rem; max-width: 400px; margin-left: auto; margin-right: auto;">
-    <h2 style="color: var(--orange); margin-bottom: 1rem;">Send Us a Message</h2>
-    <form id="contact-form" action="https://formspree.io/f/mnnvbjzb" method="POST" style="display: flex; flex-direction: column; gap: 0.75rem;">
-      <label for="name" style="font-weight: bold; text-align: left;">Your Name *</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required 
-        style="padding: 0.6rem 1rem; border-radius: 6px; border: none; font-size: 0.95rem;">
+  <!-- New Form Section -->
+  <button onclick="showForm()" class="btn-getintouch">Get in Touch</button>
+  <div id="formWrapper" style="display: none;"></div>
 
-      <label for="email" style="font-weight: bold; text-align: left;">Your Email *</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required 
-        style="padding: 0.6rem 1rem; border-radius: 6px; border: none; font-size: 0.95rem;">
-
-      <label for="subject" style="font-weight: bold; text-align: left;">Subject *</label>
-      <input type="text" id="subject" name="subject" placeholder="Subject" required 
-        style="padding: 0.6rem 1rem; border-radius: 6px; border: none; font-size: 0.95rem;">
-
-      <label for="message" style="font-weight: bold; text-align: left;">Your Message *</label>
-      <textarea id="message" name="message" placeholder="Type your message here..." rows="5" required 
-        style="padding: 0.6rem 1rem; border-radius: 6px; border: none; font-size: 0.95rem;"></textarea>
-
-      <button type="submit"
-        style="background-color: var(--orange); color: white; padding: 0.65rem 1rem; font-size: 1rem; border: none; border-radius: 6px; cursor: pointer;">
-        Send Message
-      </button>
-
-      <div class="thank-you" id="thank-you-message" style="display:none; text-align:center; color: var(--orange); font-weight: bold; margin-top: 1rem;">
-        THANK YOU FOR YOUR MESSAGE
-      </div>
-    </form>
-  </div>
-  <!-- Contact Form End -->
-<footer>
+  <footer>
     <p>Based in Bali, Indonesia<br>
     Where The Sound Meets Perfection<br>
     POLARAUDIOSOLUTION'S
@@ -247,25 +372,161 @@
       document.body.classList.toggle('light');
       document.body.classList.toggle('dark');
     }
-  </script>
-<script>
-    const form = document.getElementById('contact-form');
-    const thankYou = document.getElementById('thank-you-message');
-    form.addEventListener('submit', async function(event) {
-      event.preventDefault();
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      if (response.ok) {
-        form.reset();
-        thankYou.style.display = 'block';
+    
+    // New Form Scripts
+    const GS_API_URL = 'https://script.google.com/macros/s/AKfycbylSiVc177aOGCktaO7gMSl7UE2tMaH_JssGlE52zRj0mb6uAr2uXVBeaU5bzBLLG0CuQ/exec';
+    const FORMSPREE_URL = "https://formspree.io/f/mnnvbjzb";
+    const ADMIN_WHATSAPP_NUMBER = "6281237858515"; 
+  
+    function showForm() {
+      if (document.getElementById("form-register")) return; 
+    
+      const formHtml = `
+        <div class="form-overlay" id="form-register">
+          <div class="form-box">
+            <h2>Register Memberclub</h2>
+            <p>Uncover More, With No Cost to You</p>
+            <form onsubmit="return submitForm(event)">
+              <input name="fullname" id="fullname" type="text" placeholder="Full Name" required />
+              <input name="phone" id="phone" type="tel" placeholder="WhatsApp Number" required />
+              <input name="email" id="email" type="email" placeholder="Email" required />
+              
+              <select name="profession" id="profession" required>
+                <option value=""> Select Profession </option>
+                <option value="DJ">DJ</option>
+                <option value="EO">EO</option>
+                <option value="GM">GM</option>
+                <option value="VENDOR">VENDOR</option>
+                <option value="FREELANCER">FREELANCER</option>
+                <option value="OTHER">OTHER</option>
+              </select>
+              
+              <input name="business" id="business" type="text" placeholder="Business Field" required />
+              
+              <select name="visa" id="visa"> 
+                <option value=""> Select Type of Visa (Optional) </option>
+                <option value="Tourist Visa (B211A)">Tourist Visa (B211A - Tourism, Social, Business)</option>
+                <option value="Limited Stay Visa (VITAS)">Limited Stay Visa (VITAS - Work, Investor, Retirement)</option>
+                <option value="Visa On Arrival (VOA)">Visa On Arrival (VOA)</option>
+                <option value="Diplomatic/Service Visa">Diplomatic / Service Visa</option>
+                <option value="Transit Visa">Transit Visa</option>
+                <option value="Visa-Free">Visa-Free</option>
+                <option value="Other">Other</option>
+              </select>
+              
+              <input type="text" placeholder="Card Number (Provided by POLAR)" readonly />
+              <div class="note">Card number will be given by POLAR</div>
+              <button class="send-btn" type="submit">SUBMIT</button>
+              <button class="cancel-btn" type="button" onclick="closeForm()">Cancel</button>
+            </form>
+          </div>
+        </div>`;
+      
+      document.getElementById("formWrapper").innerHTML = formHtml;
+      document.getElementById("formWrapper").style.display = 'block';
+    }
+  
+    function closeForm() {
+      const form = document.getElementById("form-register");
+      if (form) {
+        form.remove();
+        document.getElementById("formWrapper").style.display = 'none';
       }
-    });
+    }
+  
+    async function submitForm(e) {
+      e.preventDefault(); 
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData); 
+      
+      let sheetsSuccess = false;
+      let formspreeSuccess = false;
+      let alertMessages = [];
+  
+      try {
+        const sheetsResponse = await fetch(GS_API_URL, {
+          method: 'POST',
+          body: JSON.stringify(data) 
+        });
+        const sheetsResult = await sheetsResponse.json();
+        if (sheetsResult.status === "success") {
+          sheetsSuccess = true;
+          alertMessages.push("Registration data saved successfully.");
+        } else {
+          alertMessages.push("Google Sheets submission failed: " + (sheetsResult.message || "Unknown error."));
+        }
+      } catch (error) {
+        alertMessages.push("Google Sheets connection error: " + error.message);
+      }
+  
+      try {
+        const formspreeFormData = new FormData();
+        for (const key in data) {
+            formspreeFormData.append(key, data[key]);
+        }
+        formspreeFormData.append("_subject", "New Member Registered - Polar Audio Bali");
+        
+        const formspreeResponse = await fetch(FORMSPREE_URL, {
+          method: 'POST',
+          body: formspreeFormData, 
+          headers: {
+            'Accept': 'application/json' 
+          }
+        });
+  
+        if (formspreeResponse.ok) { 
+          formspreeSuccess = true;
+          alertMessages.push("Email notification sent successfully.");
+        } else {
+          const errorData = await formspreeResponse.json();
+          alertMessages.push("Email notification failed: " + (errorData.errors ? errorData.errors.map(err => err.message).join(', ') : "Unknown error."));
+        }
+      } catch (error) {
+        alertMessages.push("Formspree connection error: " + error.message);
+      }
+  
+      const currentTimestamp = new Date().toLocaleString('id-ID', {
+          year: 'numeric', month: 'long', day: 'numeric',
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: false
+      });
+  
+      const whatsappMessage = `**POLAR AUDIO BALI - NEW MEMBER REGISTERED**
+  -------------------------------------------------
+  
+  Registration Details:
+  Full Name: ${data.fullname || "N/A"}
+  WhatsApp Number: ${data.phone || "N/A"}
+  Email: ${data.email || "N/A"}
+  Profession: ${data.profession || "N/A"}
+  Business Field: ${data.business || "N/A"}
+  Type of Visa: ${data.visa || "N/A"}
+  Card Number: (Not yet assigned)
+  
+  Registration Time: ${currentTimestamp}
+  
+  Action Required:
+  Please process the Card Number issuance soon. Thank you!`;
+  
+      const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${encodedWhatsappMessage}`;
+  
+      try {
+          window.open(whatsappUrl, '_blank');
+          alertMessages.push("WhatsApp notification will open in a new tab. Please send the message manually.");
+      } catch (error) {
+          alertMessages.push("Failed to open WhatsApp: " + error.message);
+      }
+  
+      alert(alertMessages.join("\n\n"));
+  
+      if (sheetsSuccess && formspreeSuccess) {
+          closeForm();
+          e.target.reset();
+      }
+  
+      return false;
+    }
   </script>
 </body>
 </html>
